@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODIGY INFOTECH</title>
+    <h1>PRODIGY INFOTECH</h1>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+        }
+
+
+        .container {
+            max-width: 800px; /* Adjust container width as needed */
+            margin: 50px auto;
+            background-color: #000;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #000; /* Background color for navbar */
+            padding: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #fff; /* White color */
+        }
+
+        .nav-link-base {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #ffffff; /* Background color for navbar contents */
+        }
+
+        .nav-link-base:hover {
+            background-color: #007bff; /* Background color on hover */
+            color: #ffffff; /* Text color on hover */
+        }
+
+        .nav-link {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: #007bff; /* Background color on hover */
+            color: #ffffff; /* Text color on hover */
+        }
+
+        .home-link {
+            background-color: #f8d7da; /* Red */
+        }
+
+        .login-link {
+            background-color: #d4edda; /* Green */
+        }
+
+        .signup-link {
+            background-color: #cce5ff; /* Blue */
+        }
+
+        .about-link {
+            background-color: #fff3cd; /* Yellow */
+        }
+
+        .contact-link {
+            background-color: #d1ecf1; /* Cyan */
+        }
+
+        .page {
+            display: none;
+            padding: 10px;
+            border: 0.2px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .page h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav id="navbar">
+            <div class="nav-link home-link" data-target="home">Home</div>
+            <div class="nav-link login-link" data-target="login">Login</div>
+            <div class="nav-link signup-link" data-target="signup">Sign Up</div>
+            <div class="nav-link about-link" data-target="about">About</div>
+            <div class="nav-link contact-link" data-target="contact">Contact</div>
+        </nav>
+    </div>
+
+     <div id="home" class="page" style="background-color: #f8d7da; padding: 180px;">
+    <h2>Welcome to PRODIGY INFOTECH</h2>
+    <div style="background-color: #f8d7da; padding: 180px;">
+
+        <!-- Content for Home Page -->
+        <!-- Add your home page content here -->
+    </div>
+</div>
+
+<div id="login" class="page" style="background-color: #d4edda; padding: 180px;">
+    <h2>Login</h2>
+    <div style="background-color: #d4edda; padding: 180px;">
+         <form class="login-form">
+                <h2>Login</h2>
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        <!-- Content for Login Page -->
+        <!-- Add your login form fields and buttons here -->
+    </div>
+</div>
+
+<div id="signup" class="page" style="background-color: #cce5ff; padding: 180px;">
+    <h2>Sign Up</h2>
+    <div style="background-color: #cce5ff; padding: 180px;">
+        <form class="signup-form">
+                <h2>Sign Up</h2>
+                <input type="text" placeholder="Username" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
+        <!-- Content for Sign Up Page -->
+        <!-- Add your sign up form fields and buttons here -->
+    </div>
+</div>
+
+<div id="about" class="page" style="background-color: #fff3cd; padding: 180px;">
+    <h2>About Us</h2>
+    <div style="background-color: #fff3cd; padding: 180px;">
+
+        <!-- Content for About Us Page -->
+        <!-- Add your about page content here -->
+    </div>
+</div>
+
+<div id="contact" class="page" style="background-color: #d1ecf1; padding: 180px;">
+    <h2>Contact Us</h2>
+    <div style="background-color: #d1ecf1; padding: 180px;">
+        <!-- Content for Contact Us Page -->
+        <!-- Add your contact form fields and buttons here -->
+    </div>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+
+            navLinks.forEach(function(navLink) {
+                navLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    pages.forEach(function(page) {
+                        if (page.id === targetId) {
+                            page.style.display = 'block';
+                        } else {
+                            page.style.display = 'none';
+                        }
+                    });
+
+                    // Add the 'active' class to the clicked link
+                    navLinks.forEach(function(link) {
+                        link.classList.remove('active');
+                    });
+                    navLink.classList.add('active');
+                });
+           });
+       });
+    </script>
+</body>
+</html>
